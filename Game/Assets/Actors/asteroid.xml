@@ -1,0 +1,17 @@
+<Actor type="Asteroid" resource="actors\asteroid.xml">
+
+	<TransformComponent>
+		<Position x="0" y="5" z="0"/>
+		<YawPitchRoll x="0" y="0" z="0"/>
+	</TransformComponent>
+		
+    <PhysicsComponent>
+        <Shape>Box</Shape>
+        <Density>Infinite</Density>
+        <PhysicsMaterial>Normal</PhysicsMaterial>
+    </PhysicsComponent>
+	
+    <AsteroidRenderComponent>
+        <Color r="0.52" g="0.27" b="0.30" a="1.0"/>
+    </AsteroidRenderComponent>
+</Actor>

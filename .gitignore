@@ -1,0 +1,8 @@
+Source/Lib
+Source/Temp
+Source/SpaceWars/Msvc/ipch
+Source/SpaceWars/Msvc/.vs
+
+.idea/
+
+**/*.sdf

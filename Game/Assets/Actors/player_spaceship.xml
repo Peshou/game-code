@@ -1,0 +1,23 @@
+<Actor type="Teapot" resource="actors\player_spaceship.xml">
+
+	<TransformComponent>
+		<Position x="0" y="10" z="0"/>
+		<YawPitchRoll x="0" y="0" z="0"/>
+	</TransformComponent>
+		
+    <PhysicsComponent>
+        <Shape>Box</Shape>
+        <Density>glass</Density>
+        <PhysicsMaterial>Normal</PhysicsMaterial>
+    </PhysicsComponent>
+	
+    <SpaceshipRenderComponent>
+        <Color r="0" g="1.0" b="0" a="1.0"/>
+    </SpaceshipRenderComponent>
+
+    <BaseScriptComponent>
+        <ScriptObject constructor="AddPlayer" destructor="RemovePlayer" />
+        <ScriptData actorType="Teapot" />
+    </BaseScriptComponent>
+
+</Actor>

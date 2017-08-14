@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="..\SpaceWarsView.h">
+      <Filter>SpaceWars</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SpaceWarsNetwork.h">
+      <Filter>SpaceWars</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SpaceshipEvents.h">
+      <Filter>SpaceWars</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SpaceshipController.h">
+      <Filter>SpaceWars</Filter>
+    </ClInclude>
+    <ClInclude Include="SpaceWarsStd.h">
+      <Filter>Application</Filter>
+    </ClInclude>
+    <ClInclude Include="SpaceWars.h">
+      <Filter>Application</Filter>
+    </ClInclude>
+    <ClInclude Include="SpaceshipResources.h">
+      <Filter>Application</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Application">
+      <UniqueIdentifier>{07571a94-ffad-4192-84ee-6e22a66744a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SpaceWars">
+      <UniqueIdentifier>{09e969fd-62b9-4ebd-b2cc-a7d4e06dc2a0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\SpaceWarsView.cpp">
+      <Filter>SpaceWars</Filter>
+    </ClCompile>
+    <ClCompile Include="..\SpaceWars.cpp">
+      <Filter>SpaceWars</Filter>
+    </ClCompile>
+    <ClCompile Include="..\SpaceshipEvents.cpp">
+      <Filter>SpaceWars</Filter>
+    </ClCompile>
+    <ClCompile Include="..\SpaceshipController.cpp">
+      <Filter>SpaceWars</Filter>
+    </ClCompile>
+    <ClCompile Include="SpaceWarsStd.cpp">
+      <Filter>Application</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="SpaceWars.rc">
+      <Filter>Application</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SpaceWars.sln" />
+  </ItemGroup>
+</Project>
