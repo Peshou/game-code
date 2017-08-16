@@ -219,6 +219,15 @@ int MessageBox::Ask(MessageBox_Questions question)
 		defaultAnswer = IDOK;
 		break;
 	}
+	case PLAYER_DESTROYED:
+	{
+		msg = g_pApp->GetString(_T("IDS_PLAYER_DESTROYED"));
+		title = g_pApp->GetString(_T("IDS_DESTROYED"));
+		buttonFlags = MB_OK;
+		defaultAnswer = IDOK;
+		break;
+	}
+
 	default:
 		GCC_ASSERT(0 && _T("Undefined question in Game::Ask"));
 		return IDCANCEL;

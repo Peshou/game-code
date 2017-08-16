@@ -576,5 +576,31 @@ protected:
     EXPORT_FOR_SCRIPT_EVENT(EvtData_ScriptEventTest_FromLua);
 };
 
+class EvtData_Destroy_Player : public ScriptEvent
+{
+public:
+	static const EventType sk_EventType;
+
+	EvtData_Destroy_Player(void) { }
+
+	virtual const EventType& VGetEventType(void) const
+	{
+		return sk_EventType;
+	}
+
+	virtual IEventDataPtr VCopy() const
+	{
+		return IEventDataPtr(GCC_NEW EvtData_Destroy_Player());
+	}
+
+	virtual const char* GetName(void) const
+	{
+		return "EvtData_Destroy_Player";
+	}
+
+	virtual bool VBuildEventFromScript(void);
+
+	EXPORT_FOR_SCRIPT_EVENT(EvtData_Destroy_Player);
+};
 
 void RegisterSpaceshipScriptEvents(void);

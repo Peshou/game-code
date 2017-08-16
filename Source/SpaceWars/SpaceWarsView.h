@@ -138,6 +138,7 @@ public:
     // event delegates
     void GameplayUiUpdateDelegate(IEventDataPtr pEventData);
     void SetControlledActorDelegate(IEventDataPtr pEventData);
+	void DestroyPlayerDelegate(IEventDataPtr pEventData);
 
 private:
     void RegisterAllDelegates(void);

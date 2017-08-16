@@ -1,0 +1,8 @@
+<Actor type="Music" resource="actors\music.xml">
+	<AudioComponent>
+		<Sound>audio\deep_space_theme.ogg</Sound>
+		<Loop>1</Loop>
+		<FadeIn>3.0</FadeIn>
+        	<Volume>50</Volume>
+	</AudioComponent>	
+</Actor>

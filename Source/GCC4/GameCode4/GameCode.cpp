@@ -268,7 +268,7 @@ bool GameCodeApp::InitInstance(HINSTANCE hInstance, LPWSTR lpCmdLine, HWND hWnd,
 	{
 		m_Renderer = shared_ptr<IRenderer>(GCC_NEW D3DRenderer11());
 	}
-	m_Renderer->VSetBackgroundColor(255, 20, 20, 200);
+	m_Renderer->VSetBackgroundColor(69, 90, 100, 255);
 	m_Renderer->VOnRestore();
 
 

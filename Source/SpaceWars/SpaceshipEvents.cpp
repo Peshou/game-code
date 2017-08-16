@@ -13,6 +13,7 @@ const EventType EvtData_Gameplay_UI_Update::sk_EventType(0x1002ded2);
 const EventType EvtData_Set_Controlled_Actor::sk_EventType(0xbe5e3388);
 const EventType EvtData_ScriptEventTest_ToLua::sk_EventType(0x56cff2bc);
 const EventType EvtData_ScriptEventTest_FromLua::sk_EventType(0x53fbab61);
+const EventType EvtData_Destroy_Player::sk_EventType(0x40885ba0);
 
 
 bool EvtData_Gameplay_UI_Update::VBuildEventFromScript(void)
@@ -60,6 +61,10 @@ void EvtData_Fire_Weapon::VBuildEventData(void)
 	m_eventData.SetInteger("roofus", 0);
 }
 
+bool EvtData_Destroy_Player::VBuildEventFromScript(void)
+{
+	return true;
+}
 
 void RegisterSpaceshipScriptEvents(void)
 {
@@ -71,6 +76,7 @@ void RegisterSpaceshipScriptEvents(void)
     REGISTER_SCRIPT_EVENT(EvtData_EndThrust, EvtData_EndThrust::sk_EventType);
     REGISTER_SCRIPT_EVENT(EvtData_StartSteer, EvtData_StartSteer::sk_EventType);
     REGISTER_SCRIPT_EVENT(EvtData_EndSteer, EvtData_EndSteer::sk_EventType);
+	REGISTER_SCRIPT_EVENT(EvtData_Destroy_Player, EvtData_Destroy_Player::sk_EventType);
 
     // tests
     REGISTER_SCRIPT_EVENT(EvtData_ScriptEventTest_ToLua, EvtData_ScriptEventTest_ToLua::sk_EventType);

@@ -73,7 +73,7 @@ MainMenuUI::MainMenuUI()
 
 	m_bCreatingGame = true;
 
-	D3DCOLOR color = D3DXCOLOR(0.71f, 0.11f, 0.11f, 1.0f);
+	D3DCOLOR color = D3DXCOLOR((float)96 / 255, (float)125 / 255, (float)139 / 255, 1.0f);
 	m_SampleUI.SetBackgroundColors(color);
 	
 	//TiXmlElement* mainMenuResource = XmlResourceLoader::LoadAndReturnRootXmlElement("config\\main_menu.xml");
@@ -87,8 +87,11 @@ MainMenuUI::MainMenuUI()
 	//	
 	m_SampleUI.SetFont(0, L"Comic Sans MS", height, 0);
 
-	m_SampleUI.AddStatic(0, L"\"SpaceWars\" Main Menu", iX-20, iY, g_SampleUIWidth, height * 2);
-	iY += (lineHeight * 3);
+	m_SampleUI.AddStatic(0, L"\"SpaceWars\" Main Menu", iX2-40, iY, g_SampleUIWidth, height * 2);
+	iY += (lineHeight * 1.5);
+	
+	m_SampleUI.AddStatic(0, L"Objective: Destroy enemy ships and avoid all hazardous objects!", width / 2 - 30, iY, g_SampleUIWidth, height * 2);
+	iY += (lineHeight * 1.5);
 
     m_SampleUI.AddRadioButton( CID_CREATE_GAME_RADIO, 1, L"Create Game", iX, iY, g_SampleUIWidth, height);
 	iY += lineHeight;
@@ -678,6 +681,12 @@ void SpaceWarsHumanView::SetControlledActorDelegate(IEventDataPtr pEventData)
     VSetControlledActor(pCastEventData->GetActorId());
 }
 
+void SpaceWarsHumanView::DestroyPlayerDelegate(IEventDataPtr pEventData)
+{
+	if (MessageBox::Ask(PLAYER_DESTROYED) == IDOK) {
+		g_pApp->SetQuitting(true);
+	}
+}
 
 void SpaceWarsHumanView::RegisterAllDelegates(void)
 {
@@ -685,14 +694,16 @@ void SpaceWarsHumanView::RegisterAllDelegates(void)
 
     IEventManager* pGlobalEventManager = IEventManager::Get();
     pGlobalEventManager->VAddListener(MakeDelegate(this, &SpaceWarsHumanView::GameplayUiUpdateDelegate), EvtData_Gameplay_UI_Update::sk_EventType);
-    pGlobalEventManager->VAddListener(MakeDelegate(this, &SpaceWarsHumanView::SetControlledActorDelegate), EvtData_Set_Controlled_Actor::sk_EventType);
+	pGlobalEventManager->VAddListener(MakeDelegate(this, &SpaceWarsHumanView::SetControlledActorDelegate), EvtData_Set_Controlled_Actor::sk_EventType);
+	pGlobalEventManager->VAddListener(MakeDelegate(this, &SpaceWarsHumanView::DestroyPlayerDelegate), EvtData_Destroy_Player::sk_EventType);
 }
 
 void SpaceWarsHumanView::RemoveAllDelegates(void)
 {
     IEventManager* pGlobalEventManager = IEventManager::Get();
     pGlobalEventManager->VRemoveListener(MakeDelegate(this, &SpaceWarsHumanView::GameplayUiUpdateDelegate), EvtData_Gameplay_UI_Update::sk_EventType);
-    pGlobalEventManager->VRemoveListener(MakeDelegate(this, &SpaceWarsHumanView::SetControlledActorDelegate), EvtData_Set_Controlled_Actor::sk_EventType);
+	pGlobalEventManager->VRemoveListener(MakeDelegate(this, &SpaceWarsHumanView::SetControlledActorDelegate), EvtData_Set_Controlled_Actor::sk_EventType);
+	pGlobalEventManager->VRemoveListener(MakeDelegate(this, &SpaceWarsHumanView::DestroyPlayerDelegate), EvtData_Destroy_Player::sk_EventType);
 }
 
 
